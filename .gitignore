@@ -1,0 +1,9 @@
+caddyfile-to-json
+Caddyfile
+caddyfile-to-json.a
+caddyfile-to-json.h
+
+
+# Added by cargo
+
+/target
