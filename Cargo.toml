@@ -1,5 +1,8 @@
 [package]
-name = "caddyfile-to-json"
+name = "caddyfile-parser"
+description = "A library for parsing and formatting Caddyfiles"
+repository = "https://github.com/citadel-core/caddyfile-parser"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 

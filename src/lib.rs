@@ -1,3 +1,8 @@
+#![warn(missing_docs)]
+
+//! Caddyfile parser and formatter
+//! This crate provides a Caddyfile parser and formatter for Rust.
+//! It is a wrapper around the original Caddy, which is written in Go.
 
 
 use crate::go::{GoSlice, GoString, ParseCaddyfile, FormatCaddyfile};
@@ -6,10 +11,12 @@ use crate::go::{GoSlice, GoString, ParseCaddyfile, FormatCaddyfile};
 #[allow(non_upper_case_globals)]
 #[allow(non_camel_case_types)]
 #[allow(non_snake_case)]
+#[allow(missing_docs)]
 mod go {
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
+/// Parse a Caddyfile and return a JSON representation of the parsed Caddyfile.
 pub fn parse_caddyfile(filename: &str, contents: &str) -> String {
     let filename = GoString {
         p: filename.as_ptr() as *const i8,
@@ -26,6 +33,7 @@ pub fn parse_caddyfile(filename: &str, contents: &str) -> String {
     String::from_utf8(json.to_vec()).unwrap()
 }
 
+/// Formats/prettifies a Caddyfile.
 pub fn format_caddyfile(contents: &str) -> String {
     let contents = GoSlice {
         data: contents.as_ptr() as *mut std::ffi::c_void,
