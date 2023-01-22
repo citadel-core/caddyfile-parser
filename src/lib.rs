@@ -19,7 +19,7 @@ mod go {
 /// Parse a Caddyfile and return a JSON representation of the parsed Caddyfile.
 pub fn parse_caddyfile(filename: &str, contents: &str) -> String {
     let filename = GoString {
-        p: filename.as_ptr() as *const i8,
+        p: filename.as_ptr() as *const std::os::raw::c_char,
         n: filename.len() as isize,
     };
     let contents = GoSlice {
